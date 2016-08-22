@@ -7,15 +7,13 @@
         clearBtn = document.getElementById("clear"),
         deleteBtn = document.getElementById("delete"),
         equalBtn = document.getElementById("equal"),
-        operators = "+-*/",
-        result;
+        operators = "+-*/";
 
     function fixDot(element) {
         var value = element.value,
             lastInput = value.substr(-1);
         if (operators.indexOf(lastInput) !== -1 || lastInput === "(" ||
             value === "") { // if previous input is op, or (, or empty
-            console.log("zero");
             element.value += "0";
         } else if (lastInput === ".") { // if consecutive dots appear
             element.value = value.substr(0, value.length - 1);
@@ -31,27 +29,15 @@
 
     function displayValue(btn) {
         var lastInput = inputScreen.value.substr(-1);
-        console.log("lastinput: " + lastInput);
-
 
         if (btn.value === ".") {
-            console.log("dot");
-            fixDot(inputScreen);
+            fixDot(inputScreen); // call fixDot
         } else if (operators.indexOf(btn.value) !== -1) {// if btn.value is an op
-            console.log("ops");
             if (operators.indexOf(lastInput) !== -1) {
-                console.log("last op");
-                console.log("before change: " + inputScreen.value);
                 inputScreen.value = inputScreen.value.substr(0, inputScreen.value.length - 1);
-                console.log(inputScreen.value);
             }
         }
         inputScreen.value += btn.value;
-        // else { // When the inputScreen is not empty
-        //     if (operators.indexOf(btn.value) === -1) {
-        //         inputScreen.value = btn.
-        //     }
-        // }
     }
 
 
@@ -61,13 +47,14 @@
         });
     }
 
+    // clearBtn: click once to clean inputScreen
     clearBtn.addEventListener("click", function() {
         inputScreen.value = "";
     });
 
+    // clearBtn: double click to clean topScreen
     clearBtn.addEventListener("dblclick", function() {
         topScreen.value = "";
-        result = "0";
     });
 
     deleteBtn.addEventListener("click", function() {
