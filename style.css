@@ -73,6 +73,11 @@ body {
 	vertical-align: middle;
 	font-size: 26px;
 	margin: 3px;
+
+  -webkit-transition: box-shadow 0.5s;
+  -moz-transition: box-shadow 0.5s;
+  -o-transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s;
 }
 
 #clear,
@@ -98,12 +103,11 @@ body {
 }
 
 .btns:hover {
-	box-shadow: 0px 2px 15px -1px rgba(0,0,0,0.5);
-	transition: background-color 0.5s;
+	box-shadow: 0 2px 15px -1px rgba(0,0,0,0.5);
 }
 
 .nums:hover {
-	box-shadow: 0px 2px 15px -1px rgba(0,0,0,0.35);
+	box-shadow: 0 2px 15px -1px rgba(0,0,0,0.35);
 }
 
 .btns:active {
