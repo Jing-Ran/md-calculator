@@ -10,15 +10,15 @@
         operators = "+-*/";
 
     function fixDot(element) {
-        var value = element.value,
-            lastInput = value.substr(-1);
+        var eleValue = element.value,
+            lastInput = eleValue.substr(-1);
         if (operators.indexOf(lastInput) !== -1 || lastInput === "(" ||
-            value === "") { // if previous input is op, or (, or empty
+            eleValue === "") { // if previous input is op, or (, or empty
             element.value += "0";
         } else if (lastInput === ".") { // if consecutive dots appear
-            element.value = value.substr(0, value.length - 1);
+            element.value = eleValue.substr(0, eleValue.length - 1);
         }
-        return value;
+        return eleValue;
     }
 
     function fixNums(value) {
